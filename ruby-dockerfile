@@ -1,0 +1,14 @@
+FROM ubuntu:18.04
+
+RUN apt-get update && apt-get install -y 
+
+RUN apt install ruby-full -y && \
+    apt-get install software-properties-common -y && \
+    apt-add-repository -y ppa:rael-gc/rvm && \
+    apt-get install rvm -y
+
+
+VOLUME ["/code"]
+WORKDIR /code
+
+CMD ["/bin/bash"]
